@@ -1,0 +1,25 @@
+
+
+.login-container {
+    margin: 0 auto; /* this is to make login page in center */
+    min-width: 450px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.login-form-password {
+    text-align: right;
+}
+
+.login-form-button {
+    width: 100%;
+}
