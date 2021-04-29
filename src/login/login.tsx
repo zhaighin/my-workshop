@@ -16,7 +16,7 @@ const Login: FC = () => {
           name="username"
           rules={[{ required: true, message: 'Enter your username' }]}
         >
-          <Input prefix={<UserOutlined/>} placeholder="Username" />
+          <Input prefix={<UserOutlined />} placeholder="Username" />
         </Form.Item>
         <Form.Item
           className="login-form"
@@ -24,7 +24,7 @@ const Login: FC = () => {
           rules={[{ required: true, message: 'Enter your password' }]}
         >
           <Input
-            prefix={<LockOutlined/>}
+            prefix={<LockOutlined />}
             type="password"
             placeholder="Password"
           />
@@ -47,10 +47,7 @@ const Login: FC = () => {
           </a>
         </Form.Item>
       </Form>
-
     </div>
-
-
   );
 }
 
