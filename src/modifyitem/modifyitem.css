@@ -1,0 +1,24 @@
+.modify-item-container {
+    display: flex;
+}
+
+.input-item-container {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.modify-item-input-form {
+    width: 100%;
+}
+
+.modify-item-image {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-uploader > .ant-upload {
+    width: 200px;
+    height: 200px;
+  }

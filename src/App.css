@@ -16,3 +16,19 @@
   min-height: 63px;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-btn {
+  background: #001529;
+  color: white;
+  border-color: #001529;
+}
+
+.logo-btn:hover, .logo-btn:focus {
+  background: #001529;
+  color: white;
+  border-color: #001529;
+}

@@ -1,0 +1,10 @@
+.top-nav-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-navbar-container {
+    display: flex;
+    align-self: center;
+    flex-grow: 1;
+}

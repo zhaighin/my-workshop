@@ -1,16 +1,18 @@
 import React, { FC, useState } from 'react';
 import Login from './login/login';
 import './App.css'
-import { Layout } from 'antd';
+import { Button, Layout } from 'antd';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import Main from './main/main';
-import Navbar from './navbar/navbar';
-import TopNavbar from './header/header';
+import { HomeOutlined } from '@ant-design/icons';
+import Main from './main';
+import TopNavbar from './header';
+import Navbar from './navbar';
+import ModifyItem from './modifyitem';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -25,6 +27,11 @@ const App: FC = () => {
     <Router>
       <Layout>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+          <div className="logo">
+            <Link to="/">
+              <Button className="logo-btn" shape="round" icon={<HomeOutlined />} size="large" />
+            </Link>
+          </div>
           <Navbar></Navbar>
         </Sider>
         <Layout className="app-wrapper">
@@ -38,6 +45,10 @@ const App: FC = () => {
               <Route path="/login">
                 <Login />
               </Route>
+              <Route path="/add-new-item">
+                <ModifyItem />
+              </Route>
+              {/* This need to be last so that the route works properly */}
               <Route path="/">
                 <Main />
               </Route>
