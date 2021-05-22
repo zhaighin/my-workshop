@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input } from 'antd';
 import React, { FC, useState } from 'react';
-import './login.css';
+import './Login.css';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 const Login: FC = () => {

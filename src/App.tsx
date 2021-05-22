@@ -1,43 +1,27 @@
-import React, { FC, useState } from 'react';
-import Login from './login/login';
+import React, { FC } from 'react';
+import Login from './component/Login/Login';
 import './App.css'
-import { Button, Layout } from 'antd';
+import { Layout } from 'antd';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import { HomeOutlined } from '@ant-design/icons';
-import Main from './main';
-import TopNavbar from './header';
-import Navbar from './navbar';
-import ModifyItem from './modifyitem';
+import Main from './component/Main';
+import TopNavbar from './component/Header';
+import ModifyItem from './component/AddNewItem';
 
 const { Header, Footer, Sider, Content } = Layout;
 
 const App: FC = () => {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
-
-  const onCollapse = (collapsed: boolean) => {
-    setCollapsed(collapsed);
-  };
-
   return (
     <Router>
-      <Layout>
-        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-          <div className="logo">
-            <Link to="/">
-              <Button className="logo-btn" shape="round" icon={<HomeOutlined />} size="large" />
-            </Link>
-          </div>
-          <Navbar></Navbar>
-        </Sider>
-        <Layout className="app-wrapper">
-          <Header>
-            <TopNavbar></TopNavbar>
-          </Header>
+      <Layout className="app-wrapper">
+        <Header>
+          <TopNavbar></TopNavbar>
+        </Header>
+        <Layout >
+
           <Content className="content-wrapper">
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -54,9 +38,6 @@ const App: FC = () => {
               </Route>
             </Switch>
           </Content>
-          <Footer>
-            Footer
-      </Footer>
         </Layout>
       </Layout>
 
