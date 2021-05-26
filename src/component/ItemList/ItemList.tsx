@@ -11,11 +11,6 @@ const ItemList: FC<Props> = (props) => {
 
     const { items } = props;
 
-    console.log(items);
-    console.log('something wrong')
-
-    const numbers = [1, 2, 3, 4, 5];
-
     const listItems = items.map((item) =>
         <Item item={item}></Item>
     );

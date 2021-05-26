@@ -1,9 +1,11 @@
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
+import { DeleteOutlined, EditOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { Card, Modal } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { FC, useState } from 'react';
 import EditItemModal from '../EditItemModal';
 import './Item.css';
+
+const { confirm } = Modal;
 
 // TODO: change any to types
 type Props = {
@@ -28,6 +30,19 @@ const Item: FC<Props> = (props) => {
         setIsModalVisible(false);
     };
 
+    const showDeleteConfirm = () => {
+        confirm({
+            title: `Do you want to delete ${item.name} ?`,
+            icon: <ExclamationCircleOutlined />,
+            onOk() {
+                console.log('OK');
+            },
+            onCancel() {
+                console.log('Cancel');
+            },
+        });
+    }
+
     return (
         <>
             <Card
@@ -40,14 +55,14 @@ const Item: FC<Props> = (props) => {
                 }
                 actions={[
                     <EditOutlined key="edit" onClick={showModal} />,
-                    <DeleteOutlined key="delete" />
+                    <DeleteOutlined key="delete" onClick={showDeleteConfirm} />
                 ]}
             >
                 <Meta
                     title={item.name}
                 />
             </Card>
-            <EditItemModal data={item} isModalVisible={isModalVisible} handleOk={handleOk} handleCancel={handleCancel}></EditItemModal>
+            <EditItemModal modalTitle="Edit Item" data={item} isModalVisible={isModalVisible} handleOk={handleOk} handleCancel={handleCancel}></EditItemModal>
         </>
     );
 }

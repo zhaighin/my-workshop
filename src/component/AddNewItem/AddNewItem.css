@@ -21,4 +21,9 @@
 .avatar-uploader > .ant-upload {
     width: 200px;
     height: 200px;
-  }
+}
+
+.add-new-btn {
+    background-color: #7a56b2;
+    border-color: #7a56b2;
+}

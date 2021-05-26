@@ -12,11 +12,11 @@ export const data = {
             item: [
                 {
                     name: "Brake Master Cyclinder",
-                    description: "Serial no"
+                    description: "Serial 789"
                 },
                 {
                     name: "Oil Filter",
-                    description: "Serial no"
+                    description: "Serial 101"
                 }
             ]
         },
@@ -34,11 +34,11 @@ export const data = {
                 },
                 {
                     name: "Lubricants and Coolants",
-                    description: "Serial no"
+                    description: "Serial 123"
                 },
                 {
                     name: "Cleaner",
-                    description: "Serial no"
+                    description: "Serial 456"
                 }
             ]
         },

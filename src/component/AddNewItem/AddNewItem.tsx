@@ -23,7 +23,7 @@ const AddNewItem: FC = () => {
     return (
         <div>
             <Button className="add-new-btn" type="primary" icon={<PlusOutlined />} onClick={showModal}>Add new item</Button>
-            <EditItemModal data={{}} isModalVisible={isModalVisible} handleOk={handleOk} handleCancel={handleCancel}></EditItemModal>
+            <EditItemModal isModalVisible={isModalVisible} handleOk={handleOk} handleCancel={handleCancel} modalTitle="Add New Item"></EditItemModal>
         </div>
     );
 

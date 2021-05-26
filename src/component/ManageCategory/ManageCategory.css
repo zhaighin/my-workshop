@@ -1,0 +1,9 @@
+.manage-navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.manage-navbar .manage-category-button {
+    background-color: #7a56b2;
+    border-color: #7a56b2;
+}

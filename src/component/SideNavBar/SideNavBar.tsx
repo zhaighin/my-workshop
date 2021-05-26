@@ -1,6 +1,7 @@
 import { Menu } from "antd";
 import React, { FC } from "react";
 import { data } from '../../data/data';
+import ManageCategory from '../ManageCategory';
 
 // pass the onclick from main
 type Props = {
@@ -24,13 +25,18 @@ const Navbar: FC<Props> = (props) => {
     }
 
     return (
-        <Menu
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            mode="inline"
-            theme="dark">
-            {generateMenu()}
-        </Menu>
+        <>
+            <ManageCategory></ManageCategory>
+
+            <Menu
+                defaultSelectedKeys={['0']}
+                defaultOpenKeys={['sub1']}
+                mode="inline"
+                theme="dark">
+                {generateMenu()}
+            </Menu>
+        </>
+
 
     );
 }

@@ -11,7 +11,7 @@ import Main from './component/Main';
 import TopNavbar from './component/Header';
 import ModifyItem from './component/AddNewItem';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 
 const App: FC = () => {
   return (

@@ -11,7 +11,7 @@ const Main: FC = () => {
 
     const [collapsed, setCollapsed] = useState<boolean>(false);
     // TODO: change from any to types
-    const [items, setItems] = useState<any>([]);
+    const [items, setItems] = useState<any>(categories[0].item);
 
     const onCollapse = (collapsed: boolean) => {
         setCollapsed(collapsed);
@@ -20,7 +20,7 @@ const Main: FC = () => {
     // on the menu click, get the category pass the data to item list
     const onMenuClick = (key: number) => {
         // if item not exist, setItems to []
-        if(categories[key].hasOwnProperty("item")) {
+        if (categories[key].hasOwnProperty("item")) {
             setItems(categories[key].item);
         } else {
             setItems([]);
@@ -34,7 +34,7 @@ const Main: FC = () => {
             </Sider>
             <div>
                 <AddNewItem />
-                {items.length > 0 ? <ItemList items={items}/> : "" }  
+                {items.length > 0 ? <ItemList items={items} /> : ""}
             </div>
         </>
 

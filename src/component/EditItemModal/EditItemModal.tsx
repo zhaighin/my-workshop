@@ -1,5 +1,5 @@
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { Form, Input, message, Modal, Upload } from 'antd';
+import { Input, message, Modal, Upload } from 'antd';
 import _ from 'lodash';
 import React, { FC, useEffect, useState } from "react";
 
@@ -15,12 +15,13 @@ type EditItemModalProps = {
   isModalVisible: boolean,
   handleOk: (data: any) => void,
   handleCancel: () => void,
-  data: any
+  modalTitle: String,
+  data?: any // this is optional
 };
 
 const EditItemModal: FC<EditItemModalProps> = (props) => {
 
-  const { isModalVisible, handleOk, handleCancel, data } = props;
+  const { isModalVisible, handleOk, handleCancel, data, modalTitle } = props;
 
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
@@ -65,31 +66,38 @@ const EditItemModal: FC<EditItemModalProps> = (props) => {
       <div style={{ marginTop: 8 }}>Upload</div>
     </div>
   );
+  console.log('incorrect?');
 
-  useEffect(() => {
-    if (Object.keys(data).length > 0) {
-      setTitle(data.name);
-      setDescription(data.description);
-      console.log(data)
-    } else {
-      setTitle('');
-      setDescription('');
-    }
+  const handleDescriptionChange = (info: any) => {
+    console.log('handle description change')
 
-    console.log('does it affect here?');
-  }, [data]);
-
-  const handleTitleChange = (info: any) => {
-
-   
     console.log(info.target.value);
   }
+
+  const handleTitleChange = (info: any) => {
+    console.log('handletitle change')
+
+    console.log(info.target.value);
+  }
+
 
   // wait how many milliseconds
   var onTitleChange = _.debounce(handleTitleChange, 500);
 
+  // wait how many milliseconds
+  var onDescriptionChange = _.debounce(handleDescriptionChange, 500);
+
+  // if the data change, update the value
+  useEffect(() => {
+    if (data) {
+      setTitle(data.name);
+      setDescription(data.description);
+    }
+  }, [data]);
+
+
   return (
-    <Modal title="Add new item" visible={isModalVisible} onOk={() => handleOk({ title: title, description: description })} onCancel={handleCancel} width={700}>
+    <Modal title={modalTitle} visible={isModalVisible} onOk={() => handleOk({ title: title, description: description })} onCancel={handleCancel} width={700}>
       <div className="modify-item-container">
         <div className="modify-item-image">
           <Upload
@@ -104,22 +112,16 @@ const EditItemModal: FC<EditItemModalProps> = (props) => {
             {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
           </Upload>
         </div>
-        <Form
-          className="modify-item-input-form"
-          name="modify_item"
-          layout="vertical"
-        >
-          <Form.Item
-            label="Title"
-            name="Title">
-            <Input defaultValue={title} onChange={onTitleChange} />
-          </Form.Item>
-          <Form.Item
-            label="Description"
-            name="description">
-            <TextArea rows={4} value={description} />
-          </Form.Item>
-        </Form>
+        <div className="modify-item-input-form">
+          <div>
+            <label>Title</label>
+            <Input value={title} onChange={onTitleChange} />
+          </div>
+          <div>
+            <label>Description</label>
+            <TextArea rows={4} value={description} onChange={onDescriptionChange} />
+          </div>
+        </div>
       </div>
     </Modal>
 
@@ -128,3 +130,4 @@ const EditItemModal: FC<EditItemModalProps> = (props) => {
 
 
 export default EditItemModal;
+
